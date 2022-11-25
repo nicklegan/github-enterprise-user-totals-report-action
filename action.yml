@@ -1,0 +1,35 @@
+name: 'GitHub Enterprise User Totals Report Action'
+description: 'Generate reports for every GitHub organization with all owners, members and outside collaborators'
+
+inputs:
+  token:
+    description: 'Personal Access token'
+    required: true
+  enterprise:
+    description: 'Set enterprise name different from context'
+    required: false
+  sort:
+    description: 'CSV column used to sort generated report'
+    required: false
+  sort-order:
+    description: 'CSV sort order by key column for generated report'
+    required: false
+  json:
+    description: 'Generate optional JSON file'
+    required: false
+  committer-name:
+    description: 'The name of the committer that will appear in the Git history'
+    default: 'github-actions'
+    required: false
+  committer-email:
+    description: 'The committer email that will appear in the Git history'
+    default: 'github-actions@github.com'
+    required: false
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'list'
+  color: 'blue'
